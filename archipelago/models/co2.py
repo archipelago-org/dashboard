@@ -6,3 +6,4 @@ class Co2Response(BaseModel):
     abatement: float
     plastic_collected: float
     plastic_recycled: float
+    accus_issued: int

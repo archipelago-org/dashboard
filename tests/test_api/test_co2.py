@@ -15,5 +15,4 @@ def test_spot_price_content(test_client) -> None:
     data = json.loads(response.content)
     assert "sequestration" in data
     assert "abatement" in data
-    assert "plastic_collected" in data
-    assert "plastic_recycled" in data
+    assert "accus_issued" in data
