@@ -31,6 +31,79 @@
     {
       "datasource": {
         "type": "marcusolsson-json-datasource",
+        "uid": "lcJ75fJ4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "masst"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "lcJ75fJ4k"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.abatement",
+              "name": "Total CO2 Abatement"
+            },
+            {
+              "jsonPath": "$.sequestration",
+              "language": "jsonpath",
+              "name": "Total CO2 Sequestration"
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "CO2 Abatement",
+          "urlPath": ""
+        }
+      ],
+      "title": "Carbon Tracker",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
         "uid": "2Hb7dBJVz"
       },
       "fieldConfig": {
@@ -58,7 +131,7 @@
       "gridPos": {
         "h": 3,
         "w": 7,
-        "x": 0,
+        "x": 17,
         "y": 0
       },
       "id": 2,
@@ -98,6 +171,158 @@
       ],
       "title": "API Alive Status",
       "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
+        "uid": "Ro9QnE14z"
+      },
+      "description": "Location of Carbon",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 20,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 6,
+      "options": {
+        "basemap": {
+          "config": {},
+          "name": "Layer 0",
+          "type": "default"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.4,
+                "rotation": {
+                  "field": "weight",
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "field": "weight",
+                  "fixed": 5,
+                  "max": 15,
+                  "min": 5
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "text": {
+                  "field": "product",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 25,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "Layer 1",
+            "tooltip": true,
+            "type": "markers"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "australia",
+          "lat": -25,
+          "lon": 135,
+          "zoom": 5
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "Ro9QnE14z"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.locations[*].latitude"
+            },
+            {
+              "jsonPath": "$.locations[*].longitude",
+              "language": "jsonpath",
+              "name": ""
+            },
+            {
+              "jsonPath": "$.locations[*].weight",
+              "language": "jsonpath",
+              "name": ""
+            },
+            {
+              "jsonPath": "$.locations[*].product",
+              "language": "jsonpath",
+              "name": ""
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": ""
+        }
+      ],
+      "title": "Carbon Location",
+      "type": "geomap"
     }
   ],
   "schemaVersion": 37,
@@ -114,6 +339,6 @@
   "timezone": "",
   "title": "Arichipelago",
   "uid": "imGPdB14z",
-  "version": 2,
+  "version": 15,
   "weekStart": ""
 }

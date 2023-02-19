@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 
-class AccuPriceResult(BaseModel):
+class AccuPriceResponse(BaseModel):
     spot: int

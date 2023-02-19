@@ -1,12 +1,12 @@
 from fastapi import APIRouter
-from archipelago.models.accu_price import AccuPriceResult
+from archipelago.models.accu_price import AccuPriceResponse
 import archipelago.services.accu as accu_service
 
 
 router = APIRouter()
 
 
-@router.get("/price", response_model=AccuPriceResult, name="price")
-def get_accu_spot_price() -> AccuPriceResult:
-    accu_price: AccuPriceResult = accu_service.fetch_price()
+@router.get("/price", response_model=AccuPriceResponse, name="price")
+def get_accu_spot_price() -> AccuPriceResponse:
+    accu_price: AccuPriceResponse = accu_service.fetch_price()
     return accu_price

@@ -1,17 +1,17 @@
-from archipelago.models.co2 import Co2Result
+from archipelago.models.co2 import Co2Response
 
 DUMMY_COLLECTED = 1578
 DUMMY_RECYCLED = 1254
 
 
 def get_co2():
-    result = Co2Result(
+    response = Co2Response(
         sequestration=sequestration(DUMMY_COLLECTED),
         abatement=abatement(DUMMY_COLLECTED, DUMMY_RECYCLED),
         plastic_collected=DUMMY_COLLECTED,
         plastic_recycled=DUMMY_RECYCLED
     )
-    return result
+    return response
 
 
 def sequestration(collected: float) -> float:

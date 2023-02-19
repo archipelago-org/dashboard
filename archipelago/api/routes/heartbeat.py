@@ -1,11 +1,11 @@
 from fastapi import APIRouter
 
-from archipelago.models.heartbeat import HearbeatResult
+from archipelago.models.heartbeat import HearbeatResponse
 
 router = APIRouter()
 
 
-@router.get("/heartbeat", response_model=HearbeatResult, name="heartbeat")
-def get_hearbeat() -> HearbeatResult:
-    heartbeat = HearbeatResult(is_alive=True)
+@router.get("/heartbeat", response_model=HearbeatResponse, name="heartbeat")
+def get_hearbeat() -> HearbeatResponse:
+    heartbeat = HearbeatResponse(is_alive=True)
     return heartbeat

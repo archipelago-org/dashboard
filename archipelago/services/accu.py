@@ -1,8 +1,8 @@
-from archipelago.models.accu_price import AccuPriceResult
+from archipelago.models.accu_price import AccuPriceResponse
 
 DUMMY_PRICE = 3523
 
 
 def fetch_price():
-    result = AccuPriceResult(spot=DUMMY_PRICE)
-    return result
+    response = AccuPriceResponse(spot=DUMMY_PRICE)
+    return response

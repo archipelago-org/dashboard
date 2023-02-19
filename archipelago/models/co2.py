@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Co2Result(BaseModel):
+class Co2Response(BaseModel):
     sequestration: float
     abatement: float
     plastic_collected: float
