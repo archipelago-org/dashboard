@@ -7,3 +7,7 @@ class Co2Response(BaseModel):
     plastic_collected: float
     plastic_recycled: float
     accus_issued: int
+
+
+class EfficiencyResponse(BaseModel):
+    sequestration_efficiency: float
