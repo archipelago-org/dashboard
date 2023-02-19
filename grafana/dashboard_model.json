@@ -104,50 +104,45 @@
     {
       "datasource": {
         "type": "marcusolsson-json-datasource",
-        "uid": "2Hb7dBJVz"
+        "uid": "Yxh_KP14k"
       },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-GrYlRd"
           },
           "mappings": [],
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 21,
+        "h": 8,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
-      "id": 2,
+      "id": 10,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^is_alive$/",
+          "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
       "pluginVersion": "9.3.6",
       "targets": [
@@ -155,12 +150,11 @@
           "cacheDurationSeconds": 300,
           "datasource": {
             "type": "marcusolsson-json-datasource",
-            "uid": "2Hb7dBJVz"
+            "uid": "Yxh_KP14k"
           },
           "fields": [
             {
-              "jsonPath": "$.is_alive",
-              "type": "string"
+              "jsonPath": "$.sequestration_efficiency"
             }
           ],
           "method": "GET",
@@ -169,8 +163,8 @@
           "urlPath": ""
         }
       ],
-      "title": "API Alive Status",
-      "type": "stat"
+      "title": "Sequestration Retention",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -238,6 +232,77 @@
         }
       ],
       "title": "Carbon Credits",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
+        "uid": "2Hb7dBJVz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^is_alive$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "2Hb7dBJVz"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.is_alive",
+              "type": "string"
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": ""
+        }
+      ],
+      "title": "API Alive Status",
       "type": "stat"
     },
     {
@@ -407,6 +472,6 @@
   "timezone": "",
   "title": "Arichipelago",
   "uid": "imGPdB14z",
-  "version": 18,
+  "version": 21,
   "weekStart": ""
 }
