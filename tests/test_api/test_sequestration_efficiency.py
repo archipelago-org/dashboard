@@ -14,4 +14,3 @@ def test_efficiency_content(test_client) -> None:
     print(response.content)
     data = json.loads(response.content)
     assert "sequestration_efficiency" in data
-

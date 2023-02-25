@@ -14,5 +14,6 @@ def get_co2() -> Co2Response:
 
 @router.get("/efficiency", response_model=EfficiencyResponse, name="efficiency")
 def get_efficiency() -> EfficiencyResponse:
-    efficiency = EfficiencyResponse(sequestration_efficiency=99.8)  # TODO: use real numbers
+    efficiency = EfficiencyResponse(
+        sequestration_efficiency=99.8)  # TODO: use real numbers
     return efficiency

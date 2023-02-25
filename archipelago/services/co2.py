@@ -5,7 +5,7 @@ DUMMY_RECYCLED = 1254
 DUMMY_ACCUS = DUMMY_COLLECTED + DUMMY_RECYCLED
 
 
-def get_co2():
+def get_co2() -> Co2Response:
     response = Co2Response(
         sequestration=sequestration(DUMMY_COLLECTED),
         abatement=abatement(DUMMY_COLLECTED, DUMMY_RECYCLED),
