@@ -1,6 +1,6 @@
 from xrpl.asyncio.clients import AsyncJsonRpcClient
 from xrpl.models import AccountTx, Response
-from archipelago.models.transaction import TxnResponse, Txn
+from archipelago.models.blockchain_transaction import BlockchainTxns, BlockchainTxn
 from xrpl.wallet import Wallet
 from datetime import datetime, timedelta
 
@@ -12,24 +12,23 @@ JSON_RPC_URL = "https://s.altnet.rippletest.net:51234/"
 EXPLORER_URL = "https://blockexplorer.one/xrp/testnet/tx/"
 
 
-async def get_recent_transactions() -> TxnResponse:
+async def get_recent_transactions() -> BlockchainTxns:
     retrieved_txns = await fetch_txns()
     return response(retrieved_txns)
 
 
-def response(retrieved_txns: Response) -> TxnResponse:
+def response(retrieved_txns: Response) -> BlockchainTxns:
     txns: list = []
     for retrieved_txn in retrieved_txns.result["transactions"]:
-        txn = Txn(
+        txn = BlockchainTxn(
             date=date(retrieved_txn["tx"]["date"]),
             txn_type=retrieved_txn["tx"]["TransactionType"],
-            memo_type=decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoType"]),
-            memo_data=decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoData"]),
+            description=decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoData"]),
             block_explorer=EXPLORER_URL + retrieved_txn["tx"]["hash"]
         )
         txns.append(txn)
 
-    return TxnResponse(txns=txns)
+    return BlockchainTxns(txns=txns)
 
 
 def decode(hex_string: str) -> str:

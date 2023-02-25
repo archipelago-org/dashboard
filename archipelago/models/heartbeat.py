@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 
-class HearbeatResponse(BaseModel):
+class Hearbeat(BaseModel):
     is_alive: bool

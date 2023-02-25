@@ -2,12 +2,13 @@ from pydantic import BaseModel
 from typing import List
 
 
-class Location(BaseModel):
+class ObjectLocation(BaseModel):
     latitude: float
     longitude: float
     weight: float
+    quantity: int
     product: str
 
 
-class LocationResponse(BaseModel):
-    locations: List[Location]
+class ObjectLocations(BaseModel):
+    locations: List[ObjectLocation]

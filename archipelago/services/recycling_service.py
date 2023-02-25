@@ -1,12 +1,12 @@
-from archipelago.models.co2 import Co2Response
+from archipelago.models.co2_reduction import Co2Reduction
 
 DUMMY_COLLECTED = 1578
 DUMMY_RECYCLED = 1254
 DUMMY_ACCUS = DUMMY_COLLECTED + DUMMY_RECYCLED
 
 
-def get_co2() -> Co2Response:
-    response = Co2Response(
+def get_co2_reduction() -> Co2Reduction:
+    response = Co2Reduction(
         sequestration=sequestration(DUMMY_COLLECTED),
         abatement=abatement(DUMMY_COLLECTED, DUMMY_RECYCLED),
         plastic_collected=DUMMY_COLLECTED,
@@ -17,10 +17,10 @@ def get_co2() -> Co2Response:
 
 
 def sequestration(collected: float) -> float:
-    # TODO: add actual algo
+    # TODO: add actual calculation
     return collected
 
 
 def abatement(collected: float, recycled: float) -> float:
-    # TODO: add actual algo
+    # TODO: add actual calculation
     return collected / 2 + recycled / 10
