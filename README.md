@@ -1,9 +1,46 @@
+# Archipelago 
+
+Prototype Archipelago API and dashboard
+
+## How to setup and run the API
+
+### Install Poetry
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+Refer to https://python-poetry.org/docs/master/#installing-with-the-official-installer
+   for alternative ways of installing Poetry and additional options.
+   
+### Install & start Grafana
+
+For installation instructions, refer to https://grafana.com/docs/grafana/latest/setup-grafana/installation
+
+For instructions on how to start Grafana, refer to https://grafana.com/docs/grafana/latest/setup-grafana/installation/rpm/#2-start-the-server
 
 
+### Clone this repository:
 
+```bash
+git clone git@github.com:archipelago/something.git
+cd something
+```
 
-https://grafana.com/grafana/download
+### Install the project dependencies:
 
-https://grafana.com/docs/grafana/latest/setup-grafana/installation/rpm/#2-start-the-server
+```
+poetry install
+```
 
-https://grafana.com/docs/grafana/latest/setup-grafa~~~~na/installation/debian/
+### Run the API
+Run the API like this:
+
+```bash
+uvicorn archipelago.main:app
+```
+
+Test the API by navigating to: http://127.0.0.1:8000/docs
+
+See it with Grafana: http://localhost:3000/d/imGPdB14z/arichipelago?orgId=1
+
