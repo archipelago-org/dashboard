@@ -5,7 +5,10 @@ from typing import List
 class BlockchainTxn(BaseModel):
     date: str
     txn_type: str
-    description: str
+    product_code: str
+    product_name: str
+    quantity: int
+    batch: int
     block_explorer: str
 
 

@@ -3,11 +3,12 @@ from xrpl.models import AccountTx, Response
 from archipelago.models.blockchain_transaction import BlockchainTxns, BlockchainTxn
 from xrpl.wallet import Wallet
 from datetime import datetime, timedelta
+import json
 
 # Prototyping data:
 LIMIT = 5
-SEQUENCE = 33195616
-TESTNET_SEED = "sEd7JS4SqQhivydnN1YUmcL4dGj2vxn"
+SEQUENCE = 35839144
+TESTNET_SEED = "sEdSKvr3tT2yez4R5Wxd9W3GJ63qteq"
 JSON_RPC_URL = "https://s.altnet.rippletest.net:51234/"
 EXPLORER_URL = "https://blockexplorer.one/xrp/testnet/tx/"
 
@@ -20,15 +21,22 @@ async def get_recent_transactions() -> BlockchainTxns:
 def response(retrieved_txns: Response) -> BlockchainTxns:
     txns: list = []
     for retrieved_txn in retrieved_txns.result["transactions"]:
+        if len(retrieved_txn["tx"]["Memos"]) == 0:
+            continue
+        memo_data = json.loads(decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoData"]))
         txn = BlockchainTxn(
             date=date(retrieved_txn["tx"]["date"]),
             txn_type=retrieved_txn["tx"]["TransactionType"],
-            description=decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoData"]),
+            product_code = memo_data["product_code"],
+            product_name = memo_data["name"],
+            quantity = memo_data["qty"],
+            batch = memo_data["batch"],
             block_explorer=EXPLORER_URL + retrieved_txn["tx"]["hash"]
         )
         txns.append(txn)
 
     return BlockchainTxns(txns=txns)
+
 
 
 def decode(hex_string: str) -> str:

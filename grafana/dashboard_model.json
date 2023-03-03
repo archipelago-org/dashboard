@@ -404,7 +404,7 @@
             "location": {
               "mode": "auto"
             },
-            "name": "Layer 1",
+            "name": "Object Locations",
             "tooltip": true,
             "type": "markers"
           }
@@ -434,6 +434,11 @@
             },
             {
               "jsonPath": "$.locations[*].longitude",
+              "language": "jsonpath",
+              "name": ""
+            },
+            {
+              "jsonPath": "$.locations[*].quantity",
               "language": "jsonpath",
               "name": ""
             },
@@ -616,9 +621,24 @@
               "name": "Txn Type"
             },
             {
-              "jsonPath": "$.txns[*].description",
+              "jsonPath": "$.txns[*].product_code",
               "language": "jsonpath",
-              "name": "Description"
+              "name": "Product Code"
+            },
+            {
+              "jsonPath": "$.txns[*].product_name",
+              "language": "jsonpath",
+              "name": "Product Name"
+            },
+            {
+              "jsonPath": "$.txns[*].quantity",
+              "language": "jsonpath",
+              "name": "Qty"
+            },
+            {
+              "jsonPath": "$.txns[*].batch",
+              "language": "jsonpath",
+              "name": "Batch"
             },
             {
               "jsonPath": "$.txns[*].block_explorer",
@@ -650,6 +670,6 @@
   "timezone": "",
   "title": "Arichipelago",
   "uid": "imGPdB14z",
-  "version": 26,
+  "version": 28,
   "weekStart": ""
 }
