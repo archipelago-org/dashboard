@@ -13,6 +13,15 @@ curl -sSL https://install.python-poetry.org | python3 -
 Refer to https://python-poetry.org/docs/master/#installing-with-the-official-installer
    for alternative ways of installing Poetry and additional options.
    
+### Install npm
+
+For example:
+
+```bash
+sudo apt install npm
+```
+
+
 ### Install & start Grafana
 
 For installation instructions, refer to https://grafana.com/docs/grafana/latest/setup-grafana/installation
@@ -40,7 +49,15 @@ Run the API like this:
 uvicorn archipelago.main:app
 ```
 
-Test the API by navigating to: http://127.0.0.1:8000/docs
+Test the API by navigating to:
+http://127.0.0.1:8000/docs
 
-See it with Grafana: http://localhost:3000/d/imGPdB14z/arichipelago?orgId=1
+### Run the front end
 
+```bash
+cd frontend
+npm start
+```
+
+Test the frontend by navigating to:
+http://localhost:3006/
