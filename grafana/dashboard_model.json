@@ -581,6 +581,66 @@
                 "value": 162
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Quantity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 67
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Batch"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 97
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Product Name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 161
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Qty"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 90
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Product Code"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 136
+              }
+            ]
           }
         ]
       },
@@ -670,6 +730,6 @@
   "timezone": "",
   "title": "Arichipelago",
   "uid": "imGPdB14z",
-  "version": 28,
+  "version": 30,
   "weekStart": ""
 }

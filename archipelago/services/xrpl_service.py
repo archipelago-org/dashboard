@@ -23,14 +23,15 @@ def response(retrieved_txns: Response) -> BlockchainTxns:
     for retrieved_txn in retrieved_txns.result["transactions"]:
         if len(retrieved_txn["tx"]["Memos"]) == 0:
             continue
-        memo_data = json.loads(decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoData"]))
+        memo_data = json.loads(
+            decode(retrieved_txn["tx"]["Memos"][0]["Memo"]["MemoData"]))
         txn = BlockchainTxn(
             date=date(retrieved_txn["tx"]["date"]),
             txn_type=retrieved_txn["tx"]["TransactionType"],
-            product_code = memo_data["product_code"],
-            product_name = memo_data["name"],
-            quantity = memo_data["qty"],
-            batch = memo_data["batch"],
+            product_code=memo_data["product_code"],
+            product_name=memo_data["name"],
+            quantity=memo_data["qty"],
+            batch=memo_data["batch"],
             block_explorer=EXPLORER_URL + retrieved_txn["tx"]["hash"]
         )
         txns.append(txn)
