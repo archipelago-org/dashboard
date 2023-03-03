@@ -38,7 +38,6 @@ def response(retrieved_txns: Response) -> BlockchainTxns:
     return BlockchainTxns(txns=txns)
 
 
-
 def decode(hex_string: str) -> str:
     return bytearray.fromhex(hex_string).decode()
 
