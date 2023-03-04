@@ -51,6 +51,14 @@ poetry install
 ```
 
 ### Run the API
+Set XRPL environment variables. These need to be PRIVATE in production, but for the testnet example:
+
+```bash
+export SEQUENCE=35839144
+export SEED=sEdSKvr3tT2yez4R5Wxd9W3GJ63qteq
+```
+
+
 Run the API like this:
 
 ```bash

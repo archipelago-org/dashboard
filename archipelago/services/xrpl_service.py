@@ -4,11 +4,10 @@ from archipelago.models.blockchain_transaction import BlockchainTxns, Blockchain
 from xrpl.wallet import Wallet
 from datetime import datetime, timedelta
 import json
+import os
 
 # Prototyping data:
 LIMIT = 5
-SEQUENCE = 35839144
-TESTNET_SEED = "sEdSKvr3tT2yez4R5Wxd9W3GJ63qteq"
 JSON_RPC_URL = "https://s.altnet.rippletest.net:51234/"
 EXPLORER_URL = "https://blockexplorer.one/xrp/testnet/tx/"
 
@@ -50,7 +49,7 @@ def date(delta: int) -> str:
 
 
 async def fetch_txns() -> Response:
-    wallet = Wallet(seed=TESTNET_SEED, sequence=SEQUENCE)
+    wallet = Wallet(seed=os.environ['SEED'], sequence=os.environ['SEQUENCE'])
     client = AsyncJsonRpcClient(JSON_RPC_URL)
 
     acct_txn = AccountTx(
