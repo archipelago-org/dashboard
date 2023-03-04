@@ -1,8 +1,16 @@
 # Archipelago 
 
-Prototype Archipelago API and dashboard
+Prototype Archipelago API and dashboard.
 
-## How to setup and run the API
+Archipelago is a platform that ensures CO2e sequestered within recycled materials satisfies national offset regulations, achieves measurable high-integrity sustainability outcomes and supports verifiable environmental benefits.
+
+The Archipelago dashboard is based on the following technology stack:
+
+* [FastAPI](https://fastapi.tiangolo.com/)
+* [React](https://reactjs.org/)
+* [Grafana](https://grafana.com/)
+
+## How to setup and run the dashboard
 
 ### Install Poetry
 
@@ -32,11 +40,11 @@ For instructions on how to start Grafana, refer to https://grafana.com/docs/graf
 ### Clone this repository:
 
 ```bash
-git clone git@github.com:archipelago/something.git
-cd something
+git clone git@github.com:archipelago-org/console.git
+cd console
 ```
 
-### Install the project dependencies:
+### Install the API dependencies:
 
 ```
 poetry install
@@ -52,10 +60,16 @@ uvicorn archipelago.main:app
 Test the API by navigating to:
 http://127.0.0.1:8000/docs
 
-### Run the front end
+### Install the front end dependencies
 
 ```bash
 cd frontend
+npm install
+```
+
+### Run the front end
+
+```bash
 npm start
 ```
 
