@@ -4,6 +4,7 @@ DUMMY_COLLECTED = 1578
 DUMMY_RECYCLED = 1254
 DUMMY_ACCUS = DUMMY_COLLECTED + DUMMY_RECYCLED
 
+
 class RecyclingService:
 
     def get_co2_reduction(self) -> Co2Reduction:
@@ -16,11 +17,9 @@ class RecyclingService:
         )
         return response
 
-
     def _sequestration(self, collected: float) -> float:
         # TODO: add actual calculation
         return collected
-
 
     def _abatement(self, collected: float, recycled: float) -> float:
         # TODO: add actual calculation

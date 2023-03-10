@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from archipelago.models.blockchain_transaction import BlockchainTxns
-#import archipelago.services.xrpl_service as xrpl_service
 from archipelago.services.xrpl_service import XrplService
 
 router = APIRouter()

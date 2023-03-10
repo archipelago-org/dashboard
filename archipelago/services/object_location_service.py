@@ -15,6 +15,7 @@ DUMMY_QTY_3 = 180
 
 DUMMY_PRODUCT = "Floatation Disks"
 
+
 class ObjectLocationService:
 
     def get_locations(self):
