@@ -15,28 +15,29 @@ DUMMY_QTY_3 = 180
 
 DUMMY_PRODUCT = "Floatation Disks"
 
+class ObjectLocationService:
 
-def get_locations():
-    location_1 = ObjectLocation(
-        latitude=DUMMY_LAT_1,
-        longitude=DUMMY_LON_1,
-        weight=DUMMY_WEIGHT_1,
-        quantity=DUMMY_QTY_1,
-        product=DUMMY_PRODUCT
-    )
-    location_2 = ObjectLocation(
-        latitude=DUMMY_LAT_2,
-        longitude=DUMMY_LON_2,
-        weight=DUMMY_WEIGHT_2,
-        quantity=DUMMY_QTY_2,
-        product=DUMMY_PRODUCT
-    )
-    location_3 = ObjectLocation(
-        latitude=DUMMY_LAT_3,
-        longitude=DUMMY_LON_3,
-        weight=DUMMY_WEIGHT_3,
-        quantity=DUMMY_QTY_3,
-        product=DUMMY_PRODUCT
-    )
-    response = ObjectLocations(locations=[location_1, location_2, location_3])
-    return response
+    def get_locations(self):
+        location_1 = ObjectLocation(
+            latitude=DUMMY_LAT_1,
+            longitude=DUMMY_LON_1,
+            weight=DUMMY_WEIGHT_1,
+            quantity=DUMMY_QTY_1,
+            product=DUMMY_PRODUCT
+        )
+        location_2 = ObjectLocation(
+            latitude=DUMMY_LAT_2,
+            longitude=DUMMY_LON_2,
+            weight=DUMMY_WEIGHT_2,
+            quantity=DUMMY_QTY_2,
+            product=DUMMY_PRODUCT
+        )
+        location_3 = ObjectLocation(
+            latitude=DUMMY_LAT_3,
+            longitude=DUMMY_LON_3,
+            weight=DUMMY_WEIGHT_3,
+            quantity=DUMMY_QTY_3,
+            product=DUMMY_PRODUCT
+        )
+        response = ObjectLocations(locations=[location_1, location_2, location_3])
+        return response
