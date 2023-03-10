@@ -5,15 +5,16 @@ from xrpl.wallet import Wallet
 from datetime import datetime, timedelta
 from archipelago.core.config import XRPL_JSON_RPC_URL, XRPL_EXPLORER_URL
 import json
-import os
 
 # Prototyping data:
-LIMIT = 5
+FETCH_LIMIT = 5
 
 
 class XrplService:
-    def __init__(self):
-        self.wallet = Wallet(seed=os.environ['SEED'], sequence=os.environ['SEQUENCE'])
+    def __init__(self, seed: str, sequence: str):
+        self.seed = seed,
+        self.sequence = sequence
+        self.wallet = Wallet(seed, sequence)
         self.client = AsyncJsonRpcClient(XRPL_JSON_RPC_URL)
 
     async def get_recent_transactions(self) -> BlockchainTxns:
@@ -23,7 +24,7 @@ class XrplService:
     async def _fetch_txns(self) -> Response:
         acct_txn = AccountTx(
             account=self.wallet.classic_address,
-            limit=LIMIT,
+            limit=FETCH_LIMIT,
         )
 
         return await self.client.request(acct_txn)
